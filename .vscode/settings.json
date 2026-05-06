@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "[gdscript]": {
+    "editor.tabSize": 4
+  }
+}
