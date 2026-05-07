@@ -7,6 +7,9 @@ export_presets.cfg
 # Environment variables
 .env
 
+# Claude project settings (contains API tokens)
+.claude/settings.local.json
+
 # External assets (source files)
 external-assets/
 
