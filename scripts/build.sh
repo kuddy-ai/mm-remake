@@ -23,8 +23,8 @@ esac
 mkdir -p "${OUTPUT_DIR}"
 
 GODOT_BIN="${GODOT_BIN:-godot}"
-if ! command -v "${GODOT_BIN}" >/dev/null 2>&1 && [[ -x "/tmp/godot-build/godot-linux/Godot_v4.3-stable_linux.x86_64" ]]; then
-  GODOT_BIN="/tmp/godot-build/godot-linux/Godot_v4.3-stable_linux.x86_64"
+if ! command -v "${GODOT_BIN}" >/dev/null 2>&1 && [[ -x "/tmp/godot-build/godot-linux/Godot_v4.6.2-stable_linux.x86_64" ]]; then
+  GODOT_BIN="/tmp/godot-build/godot-linux/Godot_v4.6.2-stable_linux.x86_64"
 fi
 
 GODOT_HOME="${GODOT_HOME:-/tmp}"
