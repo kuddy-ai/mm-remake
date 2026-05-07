@@ -5,7 +5,7 @@ const WASTELAND_THEME := preload("res://themes/wasteland_ui_theme.tres")
 const PIXEL_PANEL_SCENE := preload("res://scenes/ui/PixelMetalPanel.tscn")
 const WASTELAND_BUTTON_SCENE := preload("res://scenes/ui/WastelandButton.tscn")
 const WASTELAND_PROGRESS_SCENE := preload("res://scenes/ui/WastelandProgressBar.tscn")
-const MUSIC_OPENING := "res://assets/audio/bgm/001_opening_theme.mp3"
+const MUSIC_OPENING := "res://assets/audio/bgm/001_opening_theme.ogg"
 
 const STATE_MENU := "menu"
 const STATE_TOWN := "town"
@@ -648,9 +648,7 @@ func _build_audio() -> void:
 	opening_music_player.volume_db = -10.0
 	add_child(opening_music_player)
 	if FileAccess.file_exists(MUSIC_OPENING):
-		var stream := AudioStreamMP3.new()
-		stream.data = FileAccess.get_file_as_bytes(MUSIC_OPENING)
-		opening_music_player.stream = stream
+		opening_music_player.stream = load(MUSIC_OPENING)
 		opening_music_player.play()
 
 

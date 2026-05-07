@@ -15,6 +15,10 @@ assets/
 │   └── npcs/            # NPC 精灵
 │
 ├── ui/
+│   ├── atlas/           # UI 纹理合集
+│   ├── fonts/           # 字体资源
+│   ├── ninepatch/       # 九宫格拉伸面板
+│   ├── panels/          # 预制面板素材
 │   ├── hud/             # HUD UI
 │   ├── inventory/       # 库存 UI
 │   ├── battle/          # 战斗 UI
@@ -40,7 +44,7 @@ assets/
 │   └── weather/         # 天气特效
 │
 └── audio/
-    ├── bgm/             # 背景音乐 (ogg)
+    ├── bgm/             # 背景音乐
     ├── sfx/             # 战斗、爆炸、武器音效
     ├── ui/              # UI 音效
     └── ambience/        # 环境循环音
@@ -54,6 +58,12 @@ assets/
 - `001_player_idle.png`
 - `002_tank_cannon_fire.ogg`
 - `ui_confirm.wav`
+
+## 音频格式规则
+
+- MP3 只允许作为 demo 临时音频，正式版不应包含 MP3
+- 正式 BGM 和循环环境音推荐 ogg
+- 短音效推荐 wav 或 ogg
 
 ## 注意
 

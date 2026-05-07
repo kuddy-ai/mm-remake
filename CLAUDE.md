@@ -14,13 +14,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 通过 Docker 容器运行 Godot 编辑器，X11 转发到远程显示器（如 Windows MobaXterm）。
 
+**首次运行前必须复制 `.env.example` 为 `.env`**，否则容器无法显示界面：
+
+```bash
+cp .env.example .env
+# 编辑 .env 设置 DISPLAY_HOST=<远程IP>
+```
+
 ```bash
 # 启动容器内 Godot 编辑器
 docker compose up --build
 ```
 
 配置步骤：
-1. 创建 `.env` 文件：`DISPLAY_HOST=<远程IP>`
+1. 复制 `.env.example` 为 `.env`，设置 `DISPLAY_HOST=<远程IP>`
 2. 远程机器开放 X11 防火墙端口 6000
 3. 容器连接远程 X Server 显示编辑器界面
 
@@ -63,7 +70,7 @@ GitHub Actions runs on push/PR to main/develop. Uses Godot 4.3.0.
 
 ### UI System
 
-The UI follows a strict wasteland mechanical pixel style defined in `docs/ui_style_guide.md`. Key points:
+The UI follows a strict wasteland mechanical pixel style defined in `docs/ui-design/ui-style-guide.md`. Key points:
 
 - **Palette**: Dark iron/rust colors (`BG_DARK=#050403`, `PANEL_BG=#11110f`, `BORDER=#5b3f22`, `TEXT=#b9a982`)
 - **No bright/candy colors**: Forbidden are toy-like UI, rounded controls, high-saturation colors

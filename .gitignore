@@ -2,7 +2,6 @@
 .import/
 .godot/
 .export/
-export_presets.cfg
 
 # Environment variables
 .env
@@ -10,17 +9,18 @@ export_presets.cfg
 # Claude project settings (contains API tokens)
 .claude/settings.local.json
 
-# External assets (source files)
-external-assets/
+# External assets (source files — keep README.md)
+external-assets/*
+!external-assets/README.md
 
-# Design source files (never commit to git)
+# Design source files in external-assets (never commit to git)
 *.psd
 *.ai
 *.kra
 *.clip
 *.tiff
 *.tif
-*.svg
+external-assets/**/*.svg
 *.xcf
 *.aseprite
 *.afdesign
@@ -39,6 +39,11 @@ external-assets/
 *.zip
 *.rar
 *.7z
+
+# Keys and certificates (never commit to git)
+*.keystore
+*.p12
+*.mobileprovision
 
 # Mono / C#
 .mono/

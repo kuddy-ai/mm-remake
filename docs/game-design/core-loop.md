@@ -12,7 +12,7 @@
 
 ## 音乐
 
-v1 使用 Godot 的 `AudioStreamGenerator` 程序生成背景音乐，不依赖外部音频文件。标题、新手村、战斗和胜利状态会切换不同节奏与音色。
+v1 当前使用开场音乐 `assets/audio/bgm/001_opening_theme.ogg`，标题、新手村、战斗和胜利状态会切换不同节奏与音色。正式 BGM 后续统一导出为 ogg。
 
 ## 操作
 

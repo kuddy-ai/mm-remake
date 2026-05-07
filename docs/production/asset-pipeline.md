@@ -40,7 +40,6 @@ docs/concept-art/wasteland_hunter_design_images/
 - UI 图：长边约 2400px，webp 质量 90 左右
 - 角色、怪物、载具：整图一份 + 局部裁切一份
 - 单张建议控制在 500KB 到 2MB
-- 文字、边框、材质细节必须清晰
 - 文字、边框、材质细节必须清晰可读
 
 **裁切示例**：
@@ -59,6 +58,10 @@ assets/sprites/player/     # 玩家精灵
 assets/sprites/enemies/    # 敌人精灵
 assets/sprites/vehicles/   # 载具精灵
 assets/sprites/npcs/       # NPC 精灵
+assets/ui/atlas/           # UI 纹理合集
+assets/ui/fonts/           # 字体资源
+assets/ui/ninepatch/       # 九宫格拉伸面板
+assets/ui/panels/          # 预制面板素材
 assets/ui/hud/             # HUD UI
 assets/ui/inventory/       # 库存 UI
 assets/ui/battle/          # 战斗 UI
@@ -99,6 +102,7 @@ assets/audio/ambience/  # 风声、机械声、城镇环境声
 ```
 
 **音频格式建议**：
+- MP3 只允许作为 demo 临时音频，正式版不应包含 MP3
 - BGM：ogg
 - 环境循环音：ogg
 - 短音效：wav 或 ogg
