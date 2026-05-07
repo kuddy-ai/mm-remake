@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  godot:
+    build: .
+    container_name: mm-remake-godot
+    volumes:
+      - .:/workspace
+    environment:
+      - DISPLAY=${DISPLAY_HOST}:0
+      - WAYLAND_DISPLAY=

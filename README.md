@@ -36,7 +36,47 @@ cd mm-remake
 
 3. 使用 Godot 打开 `project.godot`
 
-### 3.2 Windows / macOS / Linux
+### 3.2 使用 Docker 运行（推荐，无需安装 Godot）
+
+项目内置 Docker 支持，可以直接在容器中运行 Godot 编辑器。
+
+#### 3.2.1 本地运行（Linux / macOS）
+
+```bash
+# 允许 X11 转发
+xhost +local:docker
+
+# 一键运行
+docker compose up --build
+```
+
+#### 3.2.2 从 Windows 通过 MobaXterm 远程运行
+
+适用于 Docker 运行在 Linux 主机上，从 Windows 连接显示：
+
+1. **创建 `.env` 文件**（项目根目录）
+   ```bash
+   # .env
+   DISPLAY_HOST=<你的WindowsIP>  # 例如 192.168.x.x
+   ```
+
+2. **Windows 上启动 MobaXterm**（自带 X Server）
+   - 打开 MobaXterm → 左下角 X Server 自动启动
+   - 右键任务栏图标 → `X server settings` → Access control 改为 `full`
+
+3. **开放 Windows 防火墙 6000 端口**（X11 默认端口）
+   ```powershell
+   New-NetFirewallRule -DisplayName "X11" -Direction Inbound -Protocol TCP -LocalPort 6000 -Action Allow
+   ```
+
+4. **在 Linux 主机上运行**
+   ```bash
+   docker compose up --build
+   ```
+
+> **注意**：两台机器需在同一局域网。如果画面不显示，检查 Windows 防火墙是否允许 6000 端口入站。
+
+### 3.3 Windows / macOS / Linux（本地 Godot）
 
 - 编辑器运行：
 
@@ -50,7 +90,7 @@ cd mm-remake
 ./scripts/build.sh linux debug
 ```
 
-### 3.3 Android
+### 3.4 Android
 
 1. 在 Godot 中安装 Android Build Template
 2. 配置 `ANDROID_HOME` 与签名信息
@@ -60,13 +100,13 @@ cd mm-remake
 ./scripts/build.sh android release
 ```
 
-### 3.4 iOS（仅 macOS）
+### 3.5 iOS（仅 macOS）
 
 1. 安装 Xcode 与命令行工具
 2. 在 Godot 导出 Xcode 项目
 3. 使用 Xcode 进行签名与真机构建
 
-### 3.5 CI 构建
+### 3.6 CI 构建
 
 推送到 GitHub 后自动触发 `.github/workflows/ci.yml`。
 
