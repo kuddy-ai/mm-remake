@@ -6,59 +6,66 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 "重装机兵 Remake" (Wasteland Hunter Remake) is a Godot 4.x 2D HD pixel-art RPG project. The game emphasizes wasteland mechanical pixel UI with a tank dashboard aesthetic.
 
+## Development Workflow
+
+开发新功能的标准流程：
+
+1. **新建 Issue** — 在 GitHub 上创建 issue 描述功能需求
+2. **创建开发分支** — 从 `develop` 分支创建 `feature/<issue-number>-<description>` 分支
+3. **开发与测试** — 使用本地 Godot 编辑器开发和测试
+4. **提交 PR** — 开发完成后创建 PR 合并到 `develop` 分支
+
+```bash
+# 示例流程
+gh issue create --title "添加背包系统" --body "..."
+git checkout develop && git pull
+git checkout -b feature/42-inventory-system
+# ... 开发 ...
+gh pr create --base develop
+```
+
 ## Development Preview Modes
 
-有两种开发预览方式：
+### Mode 1: 本地 Godot（推荐）
 
-### Mode 1: X11 Forwarding (Docker Editor)
+系统已安装 Godot 4.6.2，直接启动：
 
-通过 Docker 容器运行 Godot 编辑器，X11 转发到远程显示器（如 Windows MobaXterm）。
+```bash
+godot --path .
+```
 
-**首次运行前必须复制 `.env.example` 为 `.env`**，否则容器无法显示界面：
+适用场景：本地有 Godot 安装，日常开发。
+
+### Mode 2: X11 Forwarding (Docker Editor)
+
+通过 Docker 容器运行 Godot 编辑器，X11 转发到远程显示器。
+
+**首次运行前必须复制 `.env.example` 为 `.env`**：
 
 ```bash
 cp .env.example .env
 # 编辑 .env 设置 DISPLAY_HOST=<远程IP>
-```
-
-```bash
-# 启动容器内 Godot 编辑器
 docker compose up --build
 ```
 
-配置步骤：
-1. 复制 `.env.example` 为 `.env`，设置 `DISPLAY_HOST=<远程IP>`
-2. 远程机器开放 X11 防火墙端口 6000
-3. 容器连接远程 X Server 显示编辑器界面
-
-`.env` 示例见 `.env.example`。
-
 适用场景：本地无 Godot 安装，远程开发环境。
 
-### Mode 2: Samba Export (Windows Build)
+### Mode 3: Samba Export (Windows Build)
 
-构建 Windows 可执行文件并发布到 Samba 共享，供 Windows 用户直接运行。
+构建 Windows 可执行文件并发布到 Samba 共享：
 
 ```bash
-# 构建 Windows 版本
 ./scripts/build.sh windows debug   # 调试版
 ./scripts/build.sh windows release # 发布版
 ```
 
-输出：
-- `build/windows/mm-remake.exe` — 本地构建产物
-- 自动复制到 Samba 容器 `SMB_CONTAINER:/share/mm-remake/windows/`
+输出：`build/windows/mm-remake.exe`
 
-依赖环境变量（可在 `.env` 中配置）：
-- `SMB_CONTAINER` — Samba 容器名称
-- `SMB_OUTPUT_DIR` — 共享目录路径（可选，默认 `/share/mm-remake/windows`）
-- `SMB_USER` / `SMB_GROUP` — Samba 用户/组（可选，默认 `smbuser:smb`）
-
-适用场景：团队 Windows 用户测试，无需安装 Godot。
+适用场景：团队 Windows 用户测试。
 
 ### CI
 
-GitHub Actions runs on push/PR to main/develop. Uses Godot 4.3.0.
+GitHub Actions runs on push/PR to main/develop. Uses Godot 4.6.2.
 
 ## Architecture
 

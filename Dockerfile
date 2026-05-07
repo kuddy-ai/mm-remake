@@ -1,4 +1,4 @@
-FROM docker.1ms.run/barichello/godot-ci:4.3
+FROM docker.1ms.run/barichello/godot-ci:4.6.2
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     x11-xserver-utils \
