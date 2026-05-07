@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pixel_metal_panel.gd" id="1"]
+
+[node name="PixelMetalPanel" type="PanelContainer"]
+script = ExtResource("1")
+custom_minimum_size = Vector2(180, 64)

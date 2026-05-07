@@ -7,6 +7,19 @@ export_presets.cfg
 # Environment variables
 .env
 
+# External assets (source files)
+external-assets/
+
+# Design source files (never commit to git)
+*.psd
+*.ai
+*.kra
+*.clip
+*.tiff
+*.tif
+*.svg
+*.xcf
+
 # Mono / C#
 .mono/
 *.csproj
