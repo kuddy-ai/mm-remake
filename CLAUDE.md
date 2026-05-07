@@ -20,9 +20,11 @@ docker compose up --build
 ```
 
 配置步骤：
-1. 在 `docker-compose.yml` 设置 `DISPLAY=<远程IP>:0`
+1. 创建 `.env` 文件：`DISPLAY_HOST=<远程IP>`
 2. 远程机器开放 X11 防火墙端口 6000
 3. 容器连接远程 X Server 显示编辑器界面
+
+`.env` 示例见 `.env.example`。
 
 适用场景：本地无 Godot 安装，远程开发环境。
 
@@ -40,9 +42,10 @@ docker compose up --build
 - `build/windows/mm-remake.exe` — 本地构建产物
 - 自动复制到 Samba 容器 `SMB_CONTAINER:/share/mm-remake/windows/`
 
-依赖环境变量：
+依赖环境变量（可在 `.env` 中配置）：
 - `SMB_CONTAINER` — Samba 容器名称
 - `SMB_OUTPUT_DIR` — 共享目录路径（可选，默认 `/share/mm-remake/windows`）
+- `SMB_USER` / `SMB_GROUP` — Samba 用户/组（可选，默认 `smbuser:smb`）
 
 适用场景：团队 Windows 用户测试，无需安装 Godot。
 

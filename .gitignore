@@ -4,6 +4,9 @@
 .export/
 export_presets.cfg
 
+# Environment variables
+.env
+
 # Mono / C#
 .mono/
 *.csproj
