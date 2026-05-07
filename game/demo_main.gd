@@ -5,7 +5,7 @@ const WASTELAND_THEME := preload("res://themes/wasteland_ui_theme.tres")
 const PIXEL_PANEL_SCENE := preload("res://scenes/ui/PixelMetalPanel.tscn")
 const WASTELAND_BUTTON_SCENE := preload("res://scenes/ui/WastelandButton.tscn")
 const WASTELAND_PROGRESS_SCENE := preload("res://scenes/ui/WastelandProgressBar.tscn")
-const MUSIC_OPENING := "res://assets/audio/kadokura_opening.mp3"
+const MUSIC_OPENING := "res://assets/audio/bgm/001_opening_theme.mp3"
 
 const STATE_MENU := "menu"
 const STATE_TOWN := "town"
