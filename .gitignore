@@ -19,6 +19,23 @@ external-assets/
 *.tif
 *.svg
 *.xcf
+*.aseprite
+*.afdesign
+
+# Audio source files (never commit to git)
+*.flp
+*.als
+*.logicx
+*.band
+*.cpr
+*.aiff
+*.aif
+*.wav.original
+
+# Archives (never commit to git)
+*.zip
+*.rar
+*.7z
 
 # Mono / C#
 .mono/
